@@ -1,0 +1,175 @@
+.home,
+.home * {
+  box-sizing: border-box;
+}
+.home {
+  background: linear-gradient(
+      255.03deg,
+      rgba(111, 13, 116, 1) 0%,
+      rgba(87, 10, 79, 1) 100%
+    ),
+    linear-gradient(to left, #000000, #000000);
+  height: 1080px;
+  position: relative;
+  overflow: hidden;
+}
+.original-c-37-f-3-efd-5-ac-755-ec-1487-ba-8-f-841-acc-62-1 {
+  width: 2196px;
+  height: 1647px;
+  position: absolute;
+  left: -163px;
+  top: -316px;
+  backdrop-filter: blur(2px);
+  object-fit: cover;
+  aspect-ratio: 4/3;
+}
+.https-xzor-0-ff-github-io-slash-mine {
+  background: rgba(131, 46, 152, 0.6);
+  border-radius: 12px;
+  width: 512px;
+  height: 256px;
+  position: absolute;
+  left: 714px;
+  top: 120px;
+  overflow: hidden;
+  backdrop-filter: blur(11px);
+}
+.frame-1 {
+  background: rgba(131, 46, 152, 0.6);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 512px;
+  height: 256px;
+  position: absolute;
+  left: 120px;
+  top: 120px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+.pngtree-transparent-bubble-4361977-1 {
+  flex-shrink: 0;
+  width: 574px;
+  height: 574px;
+  position: absolute;
+  left: -38px;
+  top: 0px;
+  object-fit: cover;
+  aspect-ratio: 1;
+}
+.frame-5 {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 392px;
+  position: absolute;
+  left: 50%;
+  translate: -50% -50%;
+  top: 50%;
+}
+.frame-4 {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+}
+.frame-2 {
+  padding: 0px 8px 0px 8px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+}
+.icons-8-minecraft-sword-96-1 {
+  padding: 2px;
+  flex-shrink: 0;
+  width: 45px;
+  height: 45px;
+  position: relative;
+  overflow: hidden;
+}
+.group {
+  width: 81.25%;
+  height: 81.25%;
+  position: absolute;
+  right: 7.64%;
+  left: 11.11%;
+  bottom: -73.61%;
+  top: 92.36%;
+  transform: translate(0px, -36.56px);
+  overflow: visible;
+}
+.slash-mine {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Fustat-Bold", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  position: relative;
+}
+.vanilla-like-minecraft-server-with-role-play-elements {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Fustat-SemiBold", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  position: relative;
+  align-self: stretch;
+}
+.frame-3 {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 338px;
+  position: relative;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+}
+.discord-icon-svgrepo-com-1 {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.group2 {
+  width: 100%;
+  height: 77.41%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 11.46%;
+  top: 11.13%;
+  overflow: visible;
+}
+.join-our-discord-today {
+  color: #ffffff;
+  text-align: center;
+  font-family: "Fustat-Bold", sans-serif;
+  font-size: 20px;
+  line-height: 26px;
+  font-weight: 700;
+  position: relative;
+  width: 209px;
+}
