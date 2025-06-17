@@ -1,0 +1,40 @@
+<div style="font-family: 'Segoe UI', sans-serif; width: 320px; padding: 16px; background: rgba(0,0,0,0.2); border-radius: 12px; backdrop-filter: blur(6px); color: white;">
+  <div style="margin-bottom: 10px; background: rgba(255,255,255,0.05); padding: 6px 10px; border-radius: 6px; font-size: 14px; color: #eee;">
+    slashmine.aternos.me
+  </div>
+  <table style="width: 100%; font-size: 14px; border-collapse: collapse;">
+    <tr>
+      <td style="padding: 6px 0; color: #ccc;">Status</td>
+      <td id="status" style="padding: 6px 0;"><span style="padding: 2px 8px; border-radius: 6px; background: gray;">Loading...</span></td>
+    </tr>
+    <tr>
+      <td style="padding: 6px 0; color: #ccc;">Host</td>
+      <td style="padding: 6px 0;">slashmine.aternos.me</td>
+    </tr>
+    <tr>
+      <td style="padding: 6px 0; color: #ccc;">Players</td>
+      <td id="players" style="padding: 6px 0;">–</td>
+    </tr>
+  </table>
+</div>
+
+<script>
+fetch("https://api.mcsrvstat.us/2/slashmine.aternos.me")
+  .then(res => res.json())
+  .then(data => {
+    const status = document.getElementById("status");
+    const players = document.getElementById("players");
+
+    if (data.online) {
+      status.innerHTML = `<span style="background:#2ecc71; color:white; padding: 2px 8px; border-radius:6px;">Online</span>`;
+      players.textContent = `${data.players.online} / ${data.players.max}`;
+    } else {
+      status.innerHTML = `<span style="background:#e74c3c; color:white; padding: 2px 8px; border-radius:6px;">Offline</span>`;
+      players.textContent = "0 / 20";
+    }
+  })
+  .catch(() => {
+    document.getElementById("status").innerHTML = `<span style="background:gray; padding: 2px 8px; border-radius:6px;">Error</span>`;
+    document.getElementById("players").textContent = "—";
+  });
+</script>
