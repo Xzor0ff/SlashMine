@@ -7,10 +7,11 @@
     <style>
       body {
         margin: 0;
-        background: #0a0a0a;
-        font-family: 'Segoe UI', sans-serif;
-        color: white;
-        overflow: hidden;
+        background: linear-gradient(135deg, #23272a 0%, #0a0a0a 100%);
+        font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+        color: #fff;
+        min-height: 100vh;
+        overflow-x: hidden;
       }
 
       .nav {
@@ -22,89 +23,111 @@
       }
 
       .main {
-        position: relative;
-        height: calc(100vh - 40px);
+        min-height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
-        overflow: hidden;
+        position: relative;
+        z-index: 1;
       }
 
       .background {
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
+        top: 0; left: 0;
+        width: 100vw;
+        height: 100vh;
         object-fit: cover;
+        opacity: 0.18;
         z-index: 0;
         pointer-events: none;
+        filter: blur(2px) brightness(0.7);
       }
 
       .cards {
         position: relative;
-        z-index: 1;
+        z-index: 2;
         display: flex;
-        gap: 2rem;
-        padding: 2rem;
+        gap: 2.5rem;
+        padding: 2.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
       }
 
       .card {
-        background: rgba(255, 255, 255, 0.08);
-        border-radius: 16px;
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        padding: 1.5rem;
-        width: 320px;
-        height: 180px;
+        background: rgba(44, 47, 51, 0.92);
+        border-radius: 18px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.45), 0 1.5px 6px #5865f2a0;
+        padding: 2rem 1.7rem 1.7rem 1.7rem;
+        width: 340px;
+        min-height: 200px;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        transition: transform 0.18s, box-shadow 0.18s;
+        border: 1.5px solid #5865f230;
+        backdrop-filter: blur(10px);
+      }
+      .card:hover {
+        transform: translateY(-6px) scale(1.025);
+        box-shadow: 0 16px 40px #5865f2a0, 0 2px 8px #23272a80;
+        border-color: #5865f2;
       }
 
       .card h2 {
-        font-size: 32px;
-        margin: 0;
+        font-size: 2.1rem;
+        margin: 0 0 0.5rem 0;
         display: flex;
         align-items: center;
-        gap: 0.5rem;
+        gap: 0.7rem;
+        letter-spacing: 1px;
+        font-weight: 700;
+        color: #fff;
+        text-shadow: 0 2px 8px #5865f240;
       }
 
       .card p {
-        margin: 8px 0 12px;
-        font-size: 16px;
-        color: #ddd;
+        margin: 8px 0 18px;
+        font-size: 1.08rem;
+        color: #d1d5db;
+        font-weight: 400;
+        line-height: 1.5;
       }
 
       .card .button {
-        background-color: #5865f2;
-        color: white;
-        padding: 0.5rem 1rem;
+        background: linear-gradient(90deg, #5865f2 60%, #4752c4 100%);
+        color: #fff;
+        padding: 0.6rem 1.2rem;
         border: none;
-        margin-top: 16px;
+        margin-top: 12px;
         cursor: pointer;
-        font-weight: bold; 
-        box-shadow: 0 4px 12px rgba(88, 101, 242, 0.2);
-        font-size: 14px;
+        font-weight: bold;
+        font-size: 1rem;
         border-radius: 8px;
         text-decoration: none;
         text-align: center;
-        transition: box-shadow 0.3s ease, transform 0.2s ease;
+        box-shadow: 0 4px 16px #5865f250;
+        display: inline-flex;
         align-items: center;
-        gap: 0.em;
+        gap: 0.5em;
+        transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+        outline: none;
       }
-      
-
-      .card .button:hover {
-        box-shadow: 0 0 16px #5865f2;
-        transform: translateY(-2px);
+      .card .button:hover, .card .button:focus {
+        background: linear-gradient(90deg, #4752c4 0%, #5865f2 100%);
+        box-shadow: 0 0 24px #5865f2b0;
+        transform: translateY(-2px) scale(1.03);
       }
 
       .widget-card {
         position: relative;
+        min-width: 320px;
+        min-height: 180px;
+        background: #23272a;
+        border-radius: 18px;
+        overflow: hidden;
+        box-shadow: 0 4px 24px #23272a80;
+        border: 1.5px solid #5865f230;
       }
-
       .widget-card iframe {
         width: 100%;
         height: 100%;
@@ -114,11 +137,107 @@
         top: 0;
         left: 0;
       }
-
       .widget-card::before {
         content: "";
         display: block;
         padding-top: 56.25%; /* 16:9 ratio */
+      }
+
+      .popup-overlay {
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(30,34,40,0.85);
+        z-index: 1000;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        animation: fadeIn 0.2s;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+      }
+      .popup-content {
+        background: #23272a;
+        border-radius: 16px;
+        padding: 2rem 1.5rem 1.5rem 1.5rem;
+        position: relative;
+        box-shadow: 0 8px 32px #23272a80, 0 2px 8px #5865f2a0;
+        max-width: 95vw;
+        max-height: 95vh;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        border: 2px solid #5865f2;
+        animation: popupIn 0.22s;
+      }
+      @keyframes popupIn {
+        from { transform: scale(0.95); opacity: 0; }
+        to   { transform: scale(1); opacity: 1; }
+      }
+      .popup-content iframe {
+        width: 640px;
+        height: 480px;
+        max-width: 80vw;
+        max-height: 70vh;
+        border-radius: 10px;
+        background: #18191c;
+        border: none;
+        box-shadow: 0 2px 12px #5865f2a0;
+      }
+      .close-btn {
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 2.2rem;
+        position: absolute;
+        top: 10px;
+        right: 22px;
+        cursor: pointer;
+        z-index: 10;
+        transition: color 0.2s;
+        opacity: 0.7;
+      }
+      .close-btn:hover {
+        color: #5865f2;
+        opacity: 1;
+      }
+
+      @media (max-width: 900px) {
+        .cards {
+          flex-direction: column;
+          align-items: center;
+          gap: 2rem;
+          padding: 1.2rem;
+        }
+        .card, .widget-card {
+          width: 95vw;
+          min-width: unset;
+          max-width: 420px;
+        }
+      }
+      @media (max-width: 700px) {
+        .popup-content iframe {
+          width: 95vw;
+          height: 60vw;
+        }
+        .card, .widget-card {
+          padding: 1.2rem;
+          min-height: 120px;
+        }
+      }
+      @media (max-width: 500px) {
+        .popup-content iframe {
+          width: 100%;
+          height: 60vh;
+        }
+        .card, .widget-card {
+          padding: 0.7rem;
+          font-size: 0.97rem;
+        }
+        .popup-content {
+          padding: 1rem 0.5rem 0.5rem 0.5rem;
+        }
       }
     </style>
   </head>
@@ -129,17 +248,96 @@
         <div class="card">
           <h2>⚔️ SlashMine</h2>
           <p>Vanilla-like minecraft server with Role Play elements.</p>
-          <a href="https://discord.gg/b7tc6AfD" class="button" target="_blank">Join our discord today</a>
+          <a href="https://discord.gg/b7tc6AfD" class="button" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" style="vertical-align: middle; margin-right: 6px;" viewBox="0 0 24 24" fill="white">
+              <path d="M20.317 4.369a19.791 19.791 0 0 0-4.885-1.515.07.07 0 0 0-.073.035c-.211.375-.444.864-.608 1.249-1.844-.276-3.68-.276-5.486 0-.164-.393-.405-.874-.617-1.249a.07.07 0 0 0-.073-.035 19.736 19.736 0 0 0-4.885 1.515.064.064 0 0 0-.032.027C.533 9.045-.32 13.579.099 18.057a.08.08 0 0 0 .031.056c2.052 1.507 4.041 2.422 5.992 3.029a.077.077 0 0 0 .084-.027c.461-.63.873-1.295 1.226-1.994a.076.076 0 0 0-.041-.104c-.652-.247-1.27-.549-1.872-.892a.077.077 0 0 1-.008-.127c.126-.094.252-.192.371-.291a.074.074 0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.073.073 0 0 1 .078.009c.12.099.245.198.372.292a.077.077 0 0 1-.006.127 12.298 12.298 0 0 1-1.873.891.076.076 0 0 0-.04.105c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028c1.961-.607 3.95-1.522 6.002-3.029a.077.077 0 0 0 .031-.055c.5-5.177-.838-9.673-3.548-13.661a.061.061 0 0 0-.031-.028zM8.02 15.331c-1.183 0-2.156-1.085-2.156-2.419 0-1.333.955-2.418 2.156-2.418 1.21 0 2.175 1.095 2.156 2.418 0 1.334-.955 2.419-2.156 2.419zm7.974 0c-1.183 0-2.156-1.085-2.156-2.419 0-1.333.955-2.418 2.156-2.418 1.21 0 2.175 1.095 2.156 2.418 0 1.334-.946 2.419-2.156 2.419z"/>
+            </svg>
+            Join our discord today
+          </a>
+          <button class="button" id="registerBtn" type="button">Join server by form</button>
         </div>
-        <div class="card widget-card">
-          <iframe
-            src="https://xzor0ff.github.io/SlashMine/"
-            allowtransparency="true"
-            sandbox="allow-scripts allow-same-origin"
-          ></iframe>
+
+        <div class="card" style="display: flex; flex-direction: column; justify-content: center; align-items: stretch; padding: 2rem 1.7rem 1.7rem 1.7rem;">
+          <div style="font-family: 'Segoe UI', sans-serif; width: 100%; background: none; border-radius: 12px; color: white; display: flex; flex-direction: column; justify-content: center; flex: 1;">
+            <div style="margin-bottom: 10px; background: rgba(255,255,255,0.05); padding: 6px 10px; border-radius: 6px; font-size: 14px; color: #eee;">
+              slashmine.aternos.me
+            </div>
+            <table style="width: 100%; font-size: 14px; border-collapse: collapse; flex:1;">
+              <tr>
+                <td style="padding: 6px 0; color: #ccc;">Status</td>
+                <td id="version" style="padding: 6px 0;">
+                  <span style="padding: 2px 8px; border-radius: 6px; background: gray;">Loading...</span>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 6px 0; color: #ccc;">Host</td>
+                <td style="padding: 6px 0;">slashmine.aternos.me</td>
+              </tr>
+              <tr>
+                <td style="padding: 6px 0; color: #ccc;">Players</td>
+                <td id="players" style="padding: 6px 0;">–</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="popup" class="popup-overlay">
+        <div class="popup-content">
+          <button class="close-btn" id="closePopup">&times;</button>
+          <iframe width="640px" height="480px" src="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAO__U8ozghURTFSOFM2TzM1MFQ2QVFMNDNMRzJDQTA2Ry4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen></iframe>
         </div>
       </div>
     </div>
+    <script>
+      document.getElementById('registerBtn').onclick = function() {
+        document.getElementById('popup').style.display = 'flex';
+        document.body.style.overflow = 'hidden'; // Запретить прокрутку
+      };
+      document.getElementById('closePopup').onclick = function() {
+        document.getElementById('popup').style.display = 'none';
+        document.body.style.overflow = ''; // Восстановить прокрутку
+      };
+      // Закрытие popup по клику вне окна
+      document.getElementById('popup').onclick = function(e) {
+        if (e.target === this) {
+          this.style.display = 'none';
+          document.body.style.overflow = '';
+        }
+      };
+    </script>
+    <script>
+      fetch("https://api.mcsrvstat.us/2/slashmine.aternos.me")
+        .then(res => res.json())
+        .then(data => {
+          const versionEl = document.getElementById("version");
+          const players = document.getElementById("players");
+
+          const version = data.version || "Unknown";
+          let color = "#3498db"; // default blue
+
+          if (version.toLowerCase().includes("offline")) {
+            color = "#e74c3c"; // red
+          } else if (version.toLowerCase().includes("starting")) {
+            color = "#f1c40f"; // yellow
+          } else if (version.toLowerCase().includes("unknown")) {
+            color = "gray";
+          } else {
+            color = "#2ecc71"; // green
+          }
+
+          versionEl.innerHTML = `<span style="background:${color}; color:white; padding: 2px 8px; border-radius:6px;">${version}</span>`;
+          
+          if (data.players && data.players.online !== undefined) {
+            players.textContent = `${data.players.online} / ${data.players.max}`;
+          } else {
+            players.textContent = "–";
+          }
+        })
+        .catch(() => {
+          document.getElementById("version").innerHTML = `<span style="background:gray; padding: 2px 8px; border-radius:6px;">Error</span>`;
+          document.getElementById("players").textContent = "–";
+        });
+    </script>
   </body>
 </html>
 
