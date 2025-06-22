@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Правила | SlashMine</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background: linear-gradient(135deg, #23272a 0%, #0a0a0a 100%);
+      color: #fff;
+      font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+      margin: 0;
+    }
+    .nav {
+      padding: 1rem 2rem;
+      color: #999;
+      font-size: 14px;
+    }
+    .nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-right: 18px;
+      font-weight: normal;
+      transition: color 0.2s;
+    }
+    .nav a:last-child {
+      margin-right: 0;
+    }
+    .nav a:hover {
+      color: #5865f2;
+    }
+    .rules-main {
+      max-width: 900px;
+      margin: 40px auto;
+      background: rgba(44,47,51,0.97);
+      border-radius: 18px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+      padding: 2.5rem 2rem 2rem 2rem;
+    }
+    .rules-main h1 {
+      margin-top: 0;
+      margin-bottom: 2rem;
+      font-size: 1.7rem;
+      color: #fff;
+      letter-spacing: 0.5px;
+      text-align: center;
+    }
+    .rules-columns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .rules-col {
+      flex: 1 1 220px;
+      min-width: 220px;
+      border-radius: 10px;
+      padding: 0 0.5em;
+    }
+    .rules-col h2 {
+      font-size: 1.15rem;
+      margin-bottom: 0.5em;
+      font-weight: 600;
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+    }
+    .rules-col.pvp h2 { color: #b388ff; border-left: 3px solid #b388ff; padding-left: 10px; }
+    .rules-col.chat h2 { color: #82b1ff; border-left: 3px solid #82b1ff; padding-left: 10px; }
+    .rules-col.simple h2 { color: #ffd180; border-left: 3px solid #ffd180; padding-left: 10px; }
+    .rules-col ul {
+      margin: 0;
+      padding-left: 1.1em;
+      line-height: 1.7;
+      color: #e0e0e0;
+      font-size: 1em;
+    }
+    .rules-main a {
+      color: #82b1ff;
+      text-decoration: underline;
+    }
+    .rules-main a:hover {
+      color: #b388ff;
+    }
+    .rules-footer {
+      margin-top:2.5rem;
+      color:#aaa;
+      font-size:0.98em;
+      text-align: center;
+    }
+    @media (max-width: 900px) {
+      .rules-columns {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <a href="index.html">Главная</a>
+    <a href="rules.html">Правила</a>
+    <a href="team.html">Состав</a>
+  </div>
+  <div class="rules-main">
+    <h1>Общие правила сервера</h1>
+    <div class="rules-columns">
+      <div class="rules-col pvp">
+        <h2>Правила ПВП</h2>
+        <ul>
+          <li>ПВП на спавне частично запрещено</li>
+          <li>Убивать "голых игроков" на спавне также запрещено</li>
+          <li>Лив в кд... ну это ваше решение</li>
+        </ul>
+      </div>
+      <div class="rules-col chat">
+        <h2>Правила чата</h2>
+        <ul>
+          <li>Религиозные или политические конфликты запрещены</li>
+          <li>Оскорбления за рамками РП запрещено</li>
+          <li>Спам/флуд также карается варном</li>
+          <li>Провокационные ники/скины под осмотрением</li>
+        </ul>
+      </div>
+      <div class="rules-col simple">
+        <h2>Простая правилочка</h2>
+        <ul>
+          <li>Спавн разрушать запрещено за рамками РП</li>
+          <li>Засорять спавн также нельзя</li>
+          <li>И дыры застраивайте пж</li>
+        </ul>
+      </div>
+    </div>
+    <div class="rules-footer">
+      <b>Полные правила и обсуждение — в <a href="https://discord.gg/b7tc6AfD" target="_blank">Discord</a>.</b>
+      <br>
+      <span style="font-size:0.93em;">Обновлено: 15.06.2025</span>
+    </div>
+  </div>
+</body>
+</html>

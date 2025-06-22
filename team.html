@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Состав | SlashMine</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body { background: linear-gradient(135deg, #23272a 0%, #0a0a0a 100%); color: #fff; font-family: 'Segoe UI', 'Roboto', Arial, sans-serif; }
+    .nav { padding: 1rem 2rem; color: #999; font-size: 14px; }
+    .team-main {
+      max-width: 900px;
+      margin: 40px auto;
+      background: rgba(44,47,51,0.92);
+      border-radius: 18px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+      padding: 2.5rem 2rem 2rem 2rem;
+    }
+    h1 { margin-top: 0; text-align: center; }
+    .team-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+    .team-card {
+      background: rgba(30,34,40,0.97);
+      border-radius: 16px;
+      box-shadow: 0 4px 16px #23272a80;
+      width: 220px;
+      min-height: 340px;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .team-card:hover {
+      box-shadow: 0 8px 32px #5865f2a0;
+      transform: translateY(-4px) scale(1.03);
+    }
+    .team-photo-overlay {
+      position: relative;
+      width: 100%;
+      height: 220px;
+      background: #18191c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .team-photo-overlay img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      transition: filter 0.2s;
+    }
+    .team-photo-overlay::after {
+      content: "";
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 60px;
+      background: linear-gradient(0deg, rgba(30,34,40,0.95) 70%, rgba(30,34,40,0.0) 100%);
+      pointer-events: none;
+    }
+    .team-info {
+      padding: 1.1rem 1rem 1rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: none;
+    }
+    .member-role {
+      color: #82b1ff;
+      font-size: 1em;
+      margin-bottom: 0.7em;
+      text-align: center;
+    }
+    .member-desc {
+      color: #e0e0e0;
+      font-size: 0.97em;
+      text-align: center;
+      margin-bottom: 0.5em;
+    }
+    .team-card.empty {
+      background: rgba(44,47,51,0.5);
+      border: 2px dashed #5865f2;
+      color: #888;
+      min-height: 340px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+    }
+    .team-card.empty .plus {
+      font-size: 2.5rem;
+      color: #5865f2;
+      margin-bottom: 0.5em;
+    }
+    .team-card.empty .future {
+      font-size: 1.05rem;
+      color: #aaa;
+      text-align: center;
+    }
+    @media (max-width: 900px) {
+      .team-cards {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <a href="index.html">Главная</a>
+    <a href="rules.html">Правила</a>
+    <a href="team.html">Состав</a>
+  </div>
+  <div class="team-main">
+    <h1>Состав сервера SlashMine</h1>
+    <div class="team-cards">
+      <!-- r1nnter card -->
+      <div class="team-card">
+        <div class="team-photo-overlay">
+          <img src="attachment://r1nnter_card.png" alt="R1NNTER" />
+        </div>
+        <div class="team-info">
+          <div class="member-role">Модератор</div>
+          <div class="member-desc">Следит за порядком и помогает игрокам.</div>
+        </div>
+      </div>
+      <!-- xzor card -->
+      <div class="team-card">
+        <div class="team-photo-overlay">
+          <!-- Можно добавить фото владельца -->
+        </div>
+        <div class="team-info">
+          <div class="member-role">Владелец</div>
+          <div class="member-desc">Создатель и главный админ сервера.</div>
+        </div>
+      </div>
+      <!-- admin1 card -->
+      <div class="team-card">
+        <div class="team-photo-overlay"></div>
+        <div class="team-info">
+          <div class="member-role">Администратор</div>
+          <div class="member-desc">Администрирование и поддержка.</div>
+        </div>
+      </div>
+      <!-- support1 card -->
+      <div class="team-card">
+        <div class="team-photo-overlay"></div>
+        <div class="team-info">
+          <div class="member-role">Тех. поддержка</div>
+          <div class="member-desc">Помогает с техническими вопросами.</div>
+        </div>
+      </div>
+      <!-- empty cards for future members -->
+      <div class="team-card empty">
+        <div class="plus">+</div>
+        <div class="future">Здесь может быть<br>ваше имя</div>
+      </div>
+      <div class="team-card empty">
+        <div class="plus">+</div>
+        <div class="future">Вакансия открыта</div>
+      </div>
+    </div>
+    <p style="text-align:center; margin-top:2.5rem;">Связаться с командой можно через <a href="https://discord.gg/b7tc6AfD" target="_blank">Discord</a>.</p>
+  </div>
+</body>
+</html>
