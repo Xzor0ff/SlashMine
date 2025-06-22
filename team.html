@@ -29,7 +29,7 @@
       border-radius: 16px;
       box-shadow: 0 4px 16px #23272a80;
       width: 220px;
-      min-height: 340px;
+      height: 340px; /* фиксированная высота */
       display: flex;
       flex-direction: column;
       align-items: stretch;
@@ -45,17 +45,18 @@
     .team-photo-overlay {
       position: relative;
       width: 100%;
-      height: 220px;
+      height: 180px;
       background: #18191c;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
+      flex-shrink: 0;
     }
     .team-photo-overlay img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: cover;
       display: block;
       transition: filter 0.2s;
     }
@@ -63,7 +64,7 @@
       content: "";
       position: absolute;
       left: 0; right: 0; bottom: 0;
-      height: 60px;
+      height: 30px;
       background: linear-gradient(0deg, rgba(30,34,40,0.95) 70%, rgba(30,34,40,0.0) 100%);
       pointer-events: none;
     }
@@ -73,6 +74,8 @@
       flex-direction: column;
       align-items: center;
       background: none;
+      flex: 1 1 auto;
+      min-height: 0;
     }
     .member-role {
       color: #82b1ff;
@@ -90,7 +93,7 @@
       background: rgba(44,47,51,0.5);
       border: 2px dashed #5865f2;
       color: #888;
-      min-height: 340px;
+      height: 340px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -107,11 +110,42 @@
       color: #aaa;
       text-align: center;
     }
+    .team-list-section {
+      margin-top: 2.5rem;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      background: rgba(30,34,40,0.7);
+      border-radius: 12px;
+      box-shadow: 0 2px 8px #23272a80;
+      padding: 1.5rem 1.2rem;
+    }
+    .team-list-section h2 {
+      color: #b388ff;
+      font-size: 1.15rem;
+      margin-top: 0;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .team-list {
+      list-style: disc inside;
+      color: #e0e0e0;
+      font-size: 1em;
+      margin: 0;
+      padding: 0;
+    }
+    .team-list li {
+      margin-bottom: 0.7em;
+      padding-left: 0.2em;
+    }
     @media (max-width: 900px) {
       .team-cards {
         flex-direction: column;
         align-items: center;
         gap: 1.5rem;
+      }
+      .team-list-section {
+        margin-top: 2rem;
       }
     }
   </style>
@@ -125,10 +159,10 @@
   <div class="team-main">
     <h1>Состав сервера SlashMine</h1>
     <div class="team-cards">
-      <!-- r1nnter card -->
+      <!-- r1nnter card (пример с Imgur) -->
       <div class="team-card">
         <div class="team-photo-overlay">
-          <img src="r1nnter_card.png" alt="R1NNTER" />
+          <img src="https://i.postimg.cc/KYkzqpcD/r1nnter-card.png" alt="R1NNTER" />
         </div>
         <div class="team-info">
           <div class="member-role">Модератор</div>
@@ -138,7 +172,7 @@
       <!-- xzor card -->
       <div class="team-card">
         <div class="team-photo-overlay">
-          <!-- Можно добавить фото владельца -->
+          <img src="https://i.postimg.cc/44hnxm1T/xzor0ff-card-psd.png" alt="Xzor" />
         </div>
         <div class="team-info">
           <div class="member-role">Владелец</div>
@@ -147,18 +181,12 @@
       </div>
       <!-- admin1 card -->
       <div class="team-card">
-        <div class="team-photo-overlay"></div>
-        <div class="team-info">
-          <div class="member-role">Администратор</div>
-          <div class="member-desc">Администрирование и поддержка.</div>
+        <div class="team-photo-overlay">
+          <img src="https://i.postimg.cc/vBx8TNfv/Maomibeat-card-psd.png" alt="Maomibeat" />
         </div>
-      </div>
-      <!-- support1 card -->
-      <div class="team-card">
-        <div class="team-photo-overlay"></div>
         <div class="team-info">
-          <div class="member-role">Тех. поддержка</div>
-          <div class="member-desc">Помогает с техническими вопросами.</div>
+          <div class="member-role">Стафф</div>
+          <div class="member-desc">Администрирование и поддержка.</div>
         </div>
       </div>
       <!-- empty cards for future members -->
@@ -170,6 +198,15 @@
         <div class="plus">+</div>
         <div class="future">Вакансия открыта</div>
       </div>
+    </div>
+    <div class="team-list-section">
+      <h2>Остальные участники</h2>
+      <ul class="team-list">
+        <li>support1 — Тех. поддержка</li>
+        <li>moderator1 — Модератор</li>
+        <li>future_member — Будущий участник</li>
+        <!-- Добавьте новых участников сюда -->
+      </ul>
     </div>
     <p style="text-align:center; margin-top:2.5rem;">Связаться с командой можно через <a href="https://discord.gg/b7tc6AfD" target="_blank">Discord</a>.</p>
   </div>
