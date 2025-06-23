@@ -5,159 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Состав | SlashMine</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    body { background: linear-gradient(135deg, #23272a 0%, #0a0a0a 100%); color: #fff; font-family: 'Segoe UI', 'Roboto', Arial, sans-serif; }
-    .nav { padding: 1rem 2rem; color: #999; font-size: 14px; }
-    .team-main {
-      max-width: 900px;
-      margin: 40px auto;
-      background: rgba(44,47,51,0.92);
-      border-radius: 18px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.45);
-      padding: 2.5rem 2rem 2rem 2rem;
-    }
-    h1 { margin-top: 0; text-align: center; }
-    .team-cards {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: center;
-      margin-top: 2rem;
-    }
-    .team-card {
-      background: rgba(30,34,40,0.97);
-      border-radius: 16px;
-      box-shadow: 0 4px 16px #23272a80;
-      width: 220px;
-      height: 340px; /* фиксированная высота */
-      display: flex;
-      flex-direction: column;
-      align-items: stretch;
-      padding: 0;
-      position: relative;
-      overflow: hidden;
-      transition: box-shadow 0.2s, transform 0.2s;
-    }
-    .team-card:hover {
-      box-shadow: 0 8px 32px #5865f2a0;
-      transform: translateY(-4px) scale(1.03);
-    }
-    .team-photo-overlay {
-      position: relative;
-      width: 100%;
-      height: 180px;
-      background: #18191c;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      flex-shrink: 0;
-    }
-    .team-photo-overlay img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: filter 0.2s;
-    }
-    .team-photo-overlay::after {
-      content: "";
-      position: absolute;
-      left: 0; right: 0; bottom: 0;
-      height: 30px;
-      background: linear-gradient(0deg, rgba(30,34,40,0.95) 70%, rgba(30,34,40,0.0) 100%);
-      pointer-events: none;
-    }
-    .team-info {
-      padding: 1.1rem 1rem 1rem 1rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background: none;
-      flex: 1 1 auto;
-      min-height: 0;
-    }
-    .member-role {
-      color: #82b1ff;
-      font-size: 1em;
-      margin-bottom: 0.7em;
-      text-align: center;
-    }
-    .member-desc {
-      color: #e0e0e0;
-      font-size: 0.97em;
-      text-align: center;
-      margin-bottom: 0.5em;
-    }
-    .team-card.empty {
-      background: rgba(44,47,51,0.5);
-      border: 2px dashed #5865f2;
-      color: #888;
-      height: 340px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 0;
-    }
-    .team-card.empty .plus {
-      font-size: 2.5rem;
-      color: #5865f2;
-      margin-bottom: 0.5em;
-    }
-    .team-card.empty .future {
-      font-size: 1.05rem;
-      color: #aaa;
-      text-align: center;
-    }
-    .team-list-section {
-      margin-top: 2.5rem;
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
-      background: rgba(30,34,40,0.7);
-      border-radius: 12px;
-      box-shadow: 0 2px 8px #23272a80;
-      padding: 1.5rem 1.2rem;
-    }
-    .team-list-section h2 {
-      color: #b388ff;
-      font-size: 1.15rem;
-      margin-top: 0;
-      margin-bottom: 1rem;
-      text-align: center;
-    }
-    .team-list {
-      list-style: disc inside;
-      color: #e0e0e0;
-      font-size: 1em;
-      margin: 0;
-      padding: 0;
-    }
-    .team-list li {
-      margin-bottom: 0.7em;
-      padding-left: 0.2em;
-    }
-    @media (max-width: 900px) {
-      .team-cards {
-        flex-direction: column;
-        align-items: center;
-        gap: 1.5rem;
-      }
-      .team-list-section {
-        margin-top: 2rem;
-      }
-    }
-  </style>
 </head>
 <body>
   <div class="nav">
     <a href="index.html">Главная</a>
     <a href="rules.html">Правила</a>
     <a href="team.html">Состав</a>
+    <a href="gallery.html">Галерея</a>
   </div>
   <div class="team-main">
-    <h1>Состав сервера SlashMine</h1>
     <div class="team-cards">
       <!-- r1nnter card (пример с Imgur) -->
       <div class="team-card">
@@ -209,7 +65,6 @@
         <li>Maomibeat - Стафф</li>
         <li>Atremioo_21</li>
         <li>DriveHard</li>
-        <!-- Добавьте новых участников сюда -->
       </ul>
     </div>
     <p style="text-align:center; margin-top:2.5rem;">Связаться с командой можно через <a href="https://discord.gg/b7tc6AfD" target="_blank">Discord</a>.</p>
