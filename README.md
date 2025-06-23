@@ -1,1 +1,2 @@
 # SlashMineWeb
+Я гей

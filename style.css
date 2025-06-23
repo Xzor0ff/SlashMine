@@ -516,7 +516,6 @@ body {
   margin: 0 1.2rem 1.2rem 1.2rem;
   background: rgba(44,47,51,0.60);
 }
-
 .gallery-main {
   border: 2px solid #6c7ae0;
   border-radius: 18px;
@@ -524,7 +523,7 @@ body {
   padding: 2rem 1.5rem 1.5rem 1.5rem;
   margin: 2rem auto;           /* центрируем по горизонтали */
   background: rgba(44,47,51,0.60);
-  max-width: 900px;            /* ограничиваем ширину */
+  max-width: 900px;            /* ограничиваем шириаану */ 
   width: 100%;
 }
 
